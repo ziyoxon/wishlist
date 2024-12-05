@@ -3,8 +3,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useStateValue } from "../../context";
 
 const Products = ({ data }) => {
-  const { setwishlist , wishlist} = useStateValue();
-
+  const { setwishlist, wishlist } = useStateValue();
 
   const handleLike = (product) => {
     const index = wishlist.findIndex((item) => item.id === product.id);
@@ -27,7 +26,11 @@ const Products = ({ data }) => {
           onClick={() => handleLike(product)}
           className="absolute top-3 right-3 text-xl"
         >
-          <FaRegHeart />
+          {wishlist?.some((item) => item.id === product.id) ? (
+            <FaHeart />
+          ) : 
+            <FaRegHeart />
+          }
         </button>
       </div>
       <div className="">
