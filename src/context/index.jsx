@@ -5,14 +5,19 @@ const Context = createContext();
 export const ContextProvider = ({ children }) => {
   const [count, setCount] = useState(1);
   const [auth, setAuth] = useState(null);
-  const [wishlist, setwishlist] = useState(JSON.parse(localStorage.getItem("wishlist")) || []);
+  const [wishlist, setWishlist] = useState(
+    JSON.parse(localStorage.getItem("wishlist")) || []
+  );
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   }, [wishlist]);
 
   return (
-    <Context.Provider value={{ count, setCount, wishlist, setwishlist }}>
+    <Context.Provider
+      value={{ count, setCount, wishlist, setWishlist, cart, setCart }}
+    >
       {children}
     </Context.Provider>
   );

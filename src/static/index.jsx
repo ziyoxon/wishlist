@@ -31,5 +31,15 @@ export const LINKS = [
     path: "/wishes",
     icon: null,
   },
+
+  {
+    id: 6,
+    name: "",
+    path: "/cart",
+    icon: null,
+  },
 ];
+
+export const PROMOCODE = ["PROMO", "CODE"];
+
   

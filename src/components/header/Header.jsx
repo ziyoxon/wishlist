@@ -3,6 +3,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import { LINKS } from "../../static";
 import logo from "../../assets/logo.svg";
 import cart from "../../assets/Cart.svg";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { BsCart3 } from "react-icons/bs";
 import vector from "../../assets/Vector.svg";
 
 const Header = () => {
@@ -36,7 +38,10 @@ const Header = () => {
             <img src={vector} alt="Profile" className="h-6 w-6" />
           </NavLink>
           <NavLink to="/wishes" className="text-gray-700 hover:text-green-500">
-            <img src={cart} alt="Cart" className="h-6 w-6" />
+            <FaRegHeart className="w-6 h-14" />
+          </NavLink>
+          <NavLink to="/cart" className="text-gray-700 hover:text-green-500">
+            <BsCart3 className="w-6 h-14" />
           </NavLink>
         </div>
       </div>
