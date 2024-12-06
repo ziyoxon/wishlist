@@ -14,7 +14,9 @@ const Products = ({ data }) => {
     }
   };
 
-  const productItems = data?.map((product) => (
+  const visibleProducts = data?.slice(0, 8);
+
+  const productItems = visibleProducts?.map((product) => (
     <div key={product.id} className="shadow p-3">
       <div className="w-full h-64 relative">
         <img
@@ -28,9 +30,9 @@ const Products = ({ data }) => {
         >
           {wishlist?.some((item) => item.id === product.id) ? (
             <FaHeart />
-          ) : 
+          ) : (
             <FaRegHeart />
-          }
+          )}
         </button>
       </div>
       <div className="">
@@ -38,10 +40,16 @@ const Products = ({ data }) => {
       </div>
     </div>
   ));
+
   return (
     <div>
-      <h2>Products</h2>
-      <div className="grid container gap-3 grid-cols-4">{productItems}</div>
+      <h2 className="text-center text-5xl font-bold color-[#OB254B]">
+        Products
+      </h2>
+      <p className="text-center text-xl">
+        Order it for you or for your beloved ones
+      </p>
+      <div className="grid container gap-6 grid-cols-4">{productItems}</div>
     </div>
   );
 };

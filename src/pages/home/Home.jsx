@@ -16,7 +16,6 @@ const Home = ({data:props}) => {
 
   return (
     <div id='home'>
-      <h2>Home</h2>
       <Hero data={props}/>
       <p>{count}</p>
       <Products data={data?.products}/>
