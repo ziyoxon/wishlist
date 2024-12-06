@@ -2,6 +2,7 @@ import React from "react";
 import { useStateValue } from "../../context";
 import Products from "../../components/products/Products";
 import Empty from "../empty/Empty";
+import empt from "../../assets/emp.png"
 
 
 const Wishes = () => {
@@ -15,7 +16,7 @@ const Wishes = () => {
         ) : (
           <Empty
             title="Sizga yoqqanini qoʻshing"
-            url="https://uzum.uz/static/img/hearts.cf414be.png"
+            url={empt}
           />
         )}
       </div>
