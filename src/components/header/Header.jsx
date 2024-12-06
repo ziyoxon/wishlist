@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { LINKS } from "../../static";
 import logo from "../../assets/logo.svg";
-import cart from "../../assets/cart.svg";
+import cart from "../../assets/Cart.svg";
 import vector from "../../assets/Vector.svg";
 
 const Header = () => {
