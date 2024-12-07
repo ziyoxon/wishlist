@@ -115,7 +115,7 @@ const Cart = () => {
                     cart?.reduce(
                       (sum, item) => sum + item.price * item.amount,
                       0
-                    ) + 5
+                    )
                   ).toFixed(2)}
                 </span>
               </p>

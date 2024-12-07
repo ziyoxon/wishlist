@@ -3,14 +3,19 @@ import { PROMOCODE } from "../../static";
 
 const Promocode = () => {
   const code = useRef(null);
-  const [message, setMessage] = useState(""); 
+  const [message, setMessage] = useState("");
+  const [price, setPrice] = useState(100); 
+  const [discountedPrice, setDiscountedPrice] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (PROMOCODE.includes(code.current.value.toUpperCase())) {
       setMessage("✅ Promocode successfully submitted");
+      const discounted = price - price * 0.2;
+      setDiscountedPrice(discounted.toFixed(2)); 
     } else {
       setMessage("❌ Promocode failed to submit");
+      setDiscountedPrice(null); 
     }
   };
 
@@ -33,6 +38,7 @@ const Promocode = () => {
           Yuborish
         </button>
       </form>
+
       {message && (
         <p
           className={`mt-4 text-lg ${
@@ -42,6 +48,7 @@ const Promocode = () => {
           {message}
         </p>
       )}
+
     </div>
   );
 };
