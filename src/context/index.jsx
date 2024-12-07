@@ -8,7 +8,13 @@ export const ContextProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState(
     JSON.parse(localStorage.getItem("wishlist")) || []
   );
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
+
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
 
   useEffect(() => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));

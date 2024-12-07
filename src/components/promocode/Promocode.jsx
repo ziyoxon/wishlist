@@ -3,7 +3,7 @@ import { PROMOCODE } from "../../static";
 
 const Promocode = () => {
   const code = useRef(null);
-  const [message, setMessage] = useState(""); // Xabarni saqlash uchun useState
+  const [message, setMessage] = useState(""); 
 
   const handleSubmit = (event) => {
     event.preventDefault();
