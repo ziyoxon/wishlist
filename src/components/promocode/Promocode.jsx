@@ -1,34 +1,48 @@
-import React, { memo, useRef } from "react";
+import React, { memo, useRef, useState } from "react";
 import { PROMOCODE } from "../../static";
 
 const Promocode = () => {
   const code = useRef(null);
+  const [message, setMessage] = useState(""); // Xabarni saqlash uchun useState
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (PROMOCODE.includes(code.current.value.toUpperCase())) {
-        console.log([ "Uraa Uraaa Uraaa bugun ertalabgacha to'y"]);
+      setMessage("✅ Promocode successfully submitted");
     } else {
-      console.log("Kod noto'g'ri kiritildi");
+      setMessage("❌ Promocode failed to submit");
     }
   };
+
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex items-center gap-3 p-4 bg-white border border-gray-300 rounded-lg shadow-md"
-    >
-      <input
-        ref={code}
-        type="text"
-        className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        placeholder="Promokodni kiriting"
-      />
-      <button
-        type="submit"
-        className="px-3 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 transition duration-200"
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="flex items-center gap-3 p-4 bg-white border border-gray-300 rounded-lg shadow-md"
       >
-        Yuborish
-      </button>
-    </form>
+        <input
+          ref={code}
+          type="text"
+          className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          placeholder="Promokodni kiriting"
+        />
+        <button
+          type="submit"
+          className="px-3 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 transition duration-200"
+        >
+          Yuborish
+        </button>
+      </form>
+      {message && (
+        <p
+          className={`mt-4 text-lg ${
+            message.startsWith("✅") ? "text-green-600" : "text-red-600"
+          }`}
+        >
+          {message}
+        </p>
+      )}
+    </div>
   );
 };
 
